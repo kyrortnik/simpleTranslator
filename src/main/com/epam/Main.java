@@ -5,9 +5,12 @@ import main.com.epam.service.SimpleTranslator;
 import main.com.epam.service.impl.SimpleTranslatorImp;
 
 public class Main {
-    public static void main(String[] args) {
-        SimpleTranslator translator = new SimpleTranslatorImp();
-        TranslatorConsoleApplication consoleApplication = new TranslatorConsoleApplication();
+    public static void main(String[] args)   {
+       SimpleTranslator translator = new SimpleTranslatorImp();
+        TranslatorConsoleApplication consoleApplication = new TranslatorConsoleApplication(translator);
         consoleApplication.start();
+
+
+
     }
 }

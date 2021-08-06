@@ -1,13 +1,13 @@
 package main.com.epam.service;
 
-import main.com.epam.doa.SimpleTranslatorDictionary;
-import main.com.epam.entity.ParameterSet;
+import main.com.epam.entity.WordPair;
+import main.com.epam.exception.NoSuchValueException;
 
 public interface SimpleTranslator {
-    public void saveTranslation(ParameterSet parameterSet);
-    public void findTranslation(ParameterSet parameterSet);
-    public void getDictionarySize(SimpleTranslatorDictionary dictionary);
-    public void getAllDictionaryPairs(SimpleTranslatorDictionary dictionary);
 
+    void addWordPair(WordPair wordPair);
+    String findTranslation(String word) throws NoSuchValueException;
+    int getDictionarySize();
+    String getAllDictionaryPairs();
 
 }
