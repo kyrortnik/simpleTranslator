@@ -21,7 +21,7 @@ public class TranslatorConsoleApplication {
 
     private final SimpleTranslator translator;
     private final InputController inputController = new InputController();
-    private Closeable[] closeables;
+
 
     public TranslatorConsoleApplication(SimpleTranslator translator) {
         this.translator = translator;
@@ -30,7 +30,7 @@ public class TranslatorConsoleApplication {
     public void start(){
 
         processMenu();
-        cleanUpCloseables();
+        inputController.cleanUpCloseables();
 
     }
     private void processMenu(){
@@ -110,16 +110,5 @@ public class TranslatorConsoleApplication {
     }
 
 
-    private void cleanUpCloseables() {
-        for (final Closeable closeable : closeables) {
-            try {
-                closeable.close();
-                System.out.println("Resource is closed, " + closeable.getClass());
 
-            } catch (final  IOException e) {
-                System.out.println("Something went wrong during closing " + closeable.getClass());
-                e.printStackTrace();
-            }
-        }
-    }
 }

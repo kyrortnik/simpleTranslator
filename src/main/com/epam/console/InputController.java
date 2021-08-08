@@ -1,5 +1,8 @@
 package main.com.epam.console;
 
+import java.io.Closeable;
+import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class InputController {
@@ -10,7 +13,10 @@ public class InputController {
         scanner = new Scanner(System.in);
     }
 
+    private Closeable[] closeables;
+
     public InputController() {
+        this.closeables = new Closeable[]{scanner};
     }
 
     public int getConsoleChoice() {
@@ -32,7 +38,7 @@ public class InputController {
         }else {
             cleanScannerNextEnteredValue();
         }
-        return word;
+        return word.toLowerCase(Locale.ROOT);
 
     }
 
@@ -42,6 +48,17 @@ public class InputController {
     }
 
 
+    public void cleanUpCloseables() {
+        for (final Closeable closeable : closeables) {
+            try {
+                closeable.close();
+
+            } catch (final IOException e) {
+                System.out.println("Something went wrong during closing " + closeable.getClass());
+                e.printStackTrace();
+            }
+        }
+    }
 
 
 }
