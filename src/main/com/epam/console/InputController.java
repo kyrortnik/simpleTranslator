@@ -2,8 +2,7 @@ package main.com.epam.console;
 
 import java.io.Closeable;
 import java.io.IOException;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class InputController {
 
@@ -42,11 +41,24 @@ public class InputController {
 
     }
 
+
+
+    public ArrayList<String> getQuizAnswers(){
+        ArrayList<String> answers = new ArrayList<>();
+        int wordsNumber = 5;
+
+            while (wordsNumber > 0) {
+                answers.add(scanner.next().toLowerCase(Locale.ROOT));
+                --wordsNumber;
+            }
+        return answers;
+
+    }
+
     private void cleanScannerNextEnteredValue() {
         final String next = scanner.next();
         System.out.println("Entered [" + next +" ]" );
     }
-
 
     public void cleanUpCloseables() {
         for (final Closeable closeable : closeables) {

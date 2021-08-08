@@ -2,10 +2,10 @@ package main.com.epam.console;
 
 import main.com.epam.entity.WordPair;
 import main.com.epam.exception.NoSuchValueException;
+import main.com.epam.service.Quiz;
 import main.com.epam.service.SimpleTranslator;
 
-import java.io.Closeable;
-import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class TranslatorConsoleApplication {
@@ -14,17 +14,20 @@ public class TranslatorConsoleApplication {
             "\n 1. Add words pair to dictionary." +
             "\n 2. Find translation for a word." +
             "\n 3. Show number of pairs in dictionary." +
-            "\n 4. Show all words pairs.";
+            "\n 4. Show all words pairs."+
+            "\n 5. Go to Quiz.";
 
-    private static final int EXIT = 0, ADD_WORDS_PAIR = 1, FIND_TRANSLATION = 2, SHOW_NUMBER_OF_PAIRS = 3, SHOW_ALL_PAIRS = 4;
+    private static final int EXIT = 0, ADD_WORDS_PAIR = 1, FIND_TRANSLATION = 2, SHOW_NUMBER_OF_PAIRS = 3, SHOW_ALL_PAIRS = 4, QUIZ = 5;
     public static final String DELIMITER = "\n==============================================\n";
 
     private final SimpleTranslator translator;
     private final InputController inputController = new InputController();
+    private final Quiz quiz;
 
 
-    public TranslatorConsoleApplication(SimpleTranslator translator) {
+    public TranslatorConsoleApplication(SimpleTranslator translator,Quiz quiz) {
         this.translator = translator;
+        this.quiz = quiz;
     }
 
     public void start(){
@@ -55,6 +58,9 @@ public class TranslatorConsoleApplication {
                     break;
                 case SHOW_ALL_PAIRS:
                     showAllPairs();
+                    break;
+                case QUIZ:
+                    doQuiz();
                     break;
                 default:
                     printConsole("Invalid choice. Restarting app." + DELIMITER);
@@ -105,11 +111,28 @@ public class TranslatorConsoleApplication {
         printConsole(DELIMITER);
     }
 
+    private void doQuiz(){
+
+        final String ENTERING_MESSAGE =
+                "Enter russian translation for the following english words." +
+                " Use space to separate your answers. Example: " +
+                "дом дерево озеро кровать кухня";
+        ArrayList<WordPair> randomPairs;
+        ArrayList<String> userAnswers;
+
+        randomPairs = quiz.getRandomPairs();
+        printConsole(ENTERING_MESSAGE);
+        quiz.getQuizWordsFromRandomPairs(randomPairs);
+        userAnswers = inputController.getQuizAnswers();
+        printConsole("percentage of right answers =" + quiz.getRightAnswersPercentage(randomPairs,userAnswers) + "%");
+        quiz.showRightVariants(quiz.getRightVariants(randomPairs,userAnswers));
+        printConsole(DELIMITER);
+
+    }
 
     private void printConsole(String message){
         System.out.println(message);
     }
-
 
 
 }
