@@ -27,10 +27,10 @@ public class WordPair {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        WordPair that = (WordPair) o;
+        WordPair pair = (WordPair) o;
 
-        if (!Objects.equals(englishWord, that.englishWord)) return false;
-        return Objects.equals(russianWord, that.russianWord);
+        if (englishWord != null ? !englishWord.equals(pair.englishWord) : pair.englishWord != null) return false;
+        return russianWord != null ? russianWord.equals(pair.russianWord) : pair.russianWord == null;
     }
 
     @Override
