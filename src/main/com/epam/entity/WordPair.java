@@ -1,6 +1,5 @@
 package main.com.epam.entity;
 
-import java.util.Objects;
 
 public class WordPair {
 

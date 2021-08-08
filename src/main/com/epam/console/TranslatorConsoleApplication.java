@@ -101,7 +101,8 @@ public class TranslatorConsoleApplication {
     }
 
     private void showAllPairs(){
-        System.out.println(translator.getAllDictionaryPairs());
+        printConsole(translator.getAllDictionaryPairs());
+        printConsole(DELIMITER);
     }
 
 

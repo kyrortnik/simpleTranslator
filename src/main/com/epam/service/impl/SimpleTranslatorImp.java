@@ -54,16 +54,12 @@ public class SimpleTranslatorImp implements SimpleTranslator {
 
     @Override
     public int getDictionarySize() {
-
         return translatorStorage.getDictionary().size();
-
-
     }
 
     @Override
     public String getAllDictionaryPairs() {
         return translatorStorage.toString();
-
     }
 
 

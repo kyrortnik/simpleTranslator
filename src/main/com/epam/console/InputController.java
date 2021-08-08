@@ -13,7 +13,7 @@ public class InputController {
         scanner = new Scanner(System.in);
     }
 
-    private Closeable[] closeables;
+    private final Closeable[] closeables;
 
     public InputController() {
         this.closeables = new Closeable[]{scanner};

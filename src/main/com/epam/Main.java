@@ -9,8 +9,5 @@ public class Main {
        SimpleTranslator translator = new SimpleTranslatorImp();
         TranslatorConsoleApplication consoleApplication = new TranslatorConsoleApplication(translator);
         consoleApplication.start();
-
-
-
     }
 }
