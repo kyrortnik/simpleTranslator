@@ -1,6 +1,7 @@
 package main.com.epam.service.impl;
 
 import main.com.epam.data.TranslatorStorage;
+import main.com.epam.data.impl.TranslatorStorageImp;
 import main.com.epam.entity.WordPair;
 import main.com.epam.exception.NoSuchValueException;
 import main.com.epam.service.SimpleTranslator;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 public class SimpleTranslatorImp implements SimpleTranslator {
 
-    private final TranslatorStorage translatorStorage = new TranslatorStorage();
+    private final TranslatorStorage translatorStorage = new TranslatorStorageImp();
 
 
     @Override
