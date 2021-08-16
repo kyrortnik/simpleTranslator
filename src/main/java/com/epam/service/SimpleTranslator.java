@@ -1,7 +1,7 @@
-package main.com.epam.service;
+package com.epam.service;
 
-import main.com.epam.entity.WordPair;
-import main.com.epam.exception.NoSuchValueException;
+import com.epam.entity.WordPair;
+import com.epam.exception.NoSuchValueException;
 
 public interface SimpleTranslator {
 

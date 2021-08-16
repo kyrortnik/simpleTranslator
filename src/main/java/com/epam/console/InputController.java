@@ -1,4 +1,4 @@
-package main.com.epam.console;
+package com.epam.console;
 
 import java.io.Closeable;
 import java.io.IOException;

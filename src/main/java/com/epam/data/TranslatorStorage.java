@@ -1,6 +1,6 @@
-package main.com.epam.data;
+package com.epam.data;
 
-import main.com.epam.entity.WordPair;
+import com.epam.entity.WordPair;
 
 import java.util.ArrayList;
 

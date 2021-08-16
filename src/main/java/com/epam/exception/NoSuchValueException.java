@@ -1,4 +1,4 @@
-package main.com.epam.exception;
+package com.epam.exception;
 
 public class NoSuchValueException extends Exception{
 

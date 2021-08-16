@@ -1,9 +1,9 @@
-package main.com.epam.service.impl;
+package com.epam.service.impl;
 
-import main.com.epam.data.TranslatorStorage;
-import main.com.epam.data.impl.TranslatorStorageImp;
-import main.com.epam.entity.WordPair;
-import main.com.epam.service.Quiz;
+import com.epam.data.TranslatorStorage;
+import com.epam.data.impl.TranslatorStorageImp;
+import com.epam.entity.WordPair;
+import com.epam.service.Quiz;
 
 import java.util.ArrayList;
 import java.util.Random;

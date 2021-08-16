@@ -1,4 +1,4 @@
-package main.com.epam.entity;
+package com.epam.entity;
 
 
 public class WordPair {

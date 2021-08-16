@@ -1,13 +1,15 @@
-package main.com.epam.data.impl;
+package com.epam.data.impl;
 
-import main.com.epam.data.TranslatorStorage;
-import main.com.epam.entity.WordPair;
+import com.epam.data.TranslatorStorage;
+import com.epam.entity.WordPair;
 
 import java.util.ArrayList;
+
 
 public class TranslatorStorageImp implements TranslatorStorage {
 
     private final ArrayList<WordPair> dictionary = new ArrayList<>();
+
 
     {
         dictionary.add(new WordPair("russian","русский"));

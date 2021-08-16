@@ -1,9 +1,9 @@
-package main.com.epam.console;
+package com.epam.console;
 
-import main.com.epam.entity.WordPair;
-import main.com.epam.exception.NoSuchValueException;
-import main.com.epam.service.Quiz;
-import main.com.epam.service.SimpleTranslator;
+import com.epam.entity.WordPair;
+import com.epam.exception.NoSuchValueException;
+import com.epam.service.Quiz;
+import com.epam.service.SimpleTranslator;
 
 import java.util.ArrayList;
 
